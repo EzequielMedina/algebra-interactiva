@@ -1,20 +1,37 @@
 @import "tailwindcss";
+@import "katex/dist/katex.min.css";
+
+@theme {
+  /* Colores por unidad */
+  --color-unit1:       #3B82F6;
+  --color-unit1-light: #EFF6FF;
+  --color-unit1-dark:  #1D4ED8;
+
+  --color-unit2:       #10B981;
+  --color-unit2-light: #ECFDF5;
+  --color-unit2-dark:  #047857;
+
+  --color-unit3:       #8B5CF6;
+  --color-unit3-light: #F5F3FF;
+  --color-unit3-dark:  #6D28D9;
+
+  --color-unit4:       #F59E0B;
+  --color-unit4-light: #FFFBEB;
+  --color-unit4-dark:  #B45309;
+
+  /* Tipografía base */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #0f0f0f;
     --foreground: #ededed;
   }
 }
@@ -23,4 +40,11 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* KaTeX: evitar overflow en fórmulas largas */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.25rem 0;
 }
